@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Google-Dictionary-Widget </title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <h1>{{title}}</h1>
+  <input type="text" v-model="word"/>
+  <button @click="lookup" >Search</button>
+  <dl v-if="response">
+    <dt>
+      <p>{{syllables}}</p>
+      <p>{{pronunciation}}</p>
+    </dt>
+    <dd v-if="nouns.length">
+      <p>nouns</p>
+      <ol>
+        <li v-for="result in nouns">
+          <p>{{result.definition}}</p>
+          <p v-for="example in result.examples" v-if="result.examples">
+            <q>{{example}}</q>
+          </p>
+          <dl v-if="result.synonyms">
+            <dt>synonyms</dt>
+            <dd v-for="synonym in result.synonyms">
+              <button v-bind:disabled="!isOneWord(synonym)" @click="synonymLookup(synonym)">
+                {{synonym}}
+              </button>
+            </dd>
+          </dl>
+        </li>
+      </ol>
+    </dd>
+    <dd v-if="verbs.length">
+      <p>verbs</p>
+      <ol>
+        <li v-for="result in verbs">
+          <p>{{result.definition}}</p>
+          <p v-for="example in result.examples" v-if="result.examples">
+            <q>{{example}}</q>
+          </p>
+          <dl v-if="result.synonyms">
+            <dt>synonyms</dt>
+            <dd v-for="synonym in result.synonyms">
+              <button v-bind:disabled="!isOneWord(synonym)" @click="synonymLookup(synonym)">
+                {{synonym}}
+              </button>
+            </dd>
+          </dl>
+        </li>
+      </ol>
+    </dd>
+    <dd v-if="adjectives.length">
+      <p>adjectives</p>
+      <ol>
+        <li v-for="result in adjectives">
+          <p>{{result.definition}}</p>
+          <p v-for="example in result.examples" v-if="result.examples">
+            <q>{{example}}</q>
+          </p>
+          <dl v-if="result.synonyms">
+            <dt>synonyms</dt>
+            <dd v-for="synonym in result.synonyms">
+              <button v-bind:disabled="!isOneWord(synonym)" @click="synonymLookup(synonym)">
+                {{synonym}}
+              </button>
+            </dd>
+          </dl>
+        </li>
+      </ol>
+    </dd>
+  </dl>
+  <p v-else>Please search for a word</p>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
