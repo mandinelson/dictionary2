@@ -1,0 +1,62 @@
+#app {
+  box-sizing: border-box;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+#app dl dt p:first-child {
+  font-size: 2em;
+  margin: 0;
+}
+
+#app dl dt p:nth-child(2) {
+  color: darkgray;
+}
+
+q {
+  color: darkgray;
+}
+
+li {
+  margin-top: 20px;
+}
+li > * {
+  margin: 0;
+}
+
+li dl dt {
+  color: #188038;
+  display: inline;
+}
+
+li dl dt:after {
+  content: ":";
+}
+
+li dl dd {
+  display: inline;
+  margin-left: 0px;
+}
+
+li dl dd:not(:last-child) {
+  margin-right: 10px;
+}
+
+dd button {
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+dd button:not([disabled]):hover {
+  background-color: #efefef;
+}
+
+dd button[disabled] {
+  border: none;
+  background-color: #efefef;
+  color: #888;
+}
